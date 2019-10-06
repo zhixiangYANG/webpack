@@ -2,18 +2,21 @@
 //这个文件需要暴露一个对象，使用commonjs规范
 
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   //配置选项
 
   //单入口
-  // entry: "./src/hello.js",
+  entry: "./src/index.js",
 
   //多入口
-  entry: {
-    index: "./src/index.js",
-    hello: "./src/hello.js"
-  },
+  // entry: {
+  //   index: "./src/index.js",
+  //   hello: "./src/hello.js"
+  // },
 
   //出口
   output: {
@@ -52,5 +55,21 @@ module.exports = {
         use: "file-loader"
       }
     ]
-  }
+  },
+
+  //插件
+  plugins: [
+    new HtmlWebpackPlugin({
+      //设置模板文件的路径
+      template: path.resolve(__dirname, "./public/index.html")
+    }),
+
+    new CleanWebpackPlugin(),
+
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "./public")
+      }
+    ])
+  ]
 };
