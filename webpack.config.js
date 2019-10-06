@@ -6,15 +6,25 @@ const path = require("path");
 module.exports = {
   //配置选项
 
-  //入口
-  entry: "./src/hello.js",
+  //单入口
+  // entry: "./src/hello.js",
+
+  //多入口
+  entry: {
+    index: "./src/index.js",
+    hello: "./src/hello.js"
+  },
 
   //出口
   output: {
     //指定出口的文件夹，需要是一个绝对路径
     path: path.resolve(__dirname, "./dist"),
     //打包生成的JS文件的文件名叫什么
-    filename: "wodetian.js"
+    // filename: "wodetian.js"
+
+    //使用name占位符来处理多个入口得情况
+    //使用hash占位符来处理缓存问题
+    filename: "[name]-[hash].js"
   },
 
   module: {
