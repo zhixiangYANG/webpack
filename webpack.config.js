@@ -15,5 +15,32 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     //打包生成的JS文件的文件名叫什么
     filename: "wodetian.js"
+  },
+
+  module: {
+    //转换器的规则
+    rules: [
+      {
+        //指定某种类型的文件
+        test: /\.css$/,
+        //指定使用的转换器
+        //css->css-loader->style-loader
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        //scss->sass-loader->css-loader->style-loader
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.less$/,
+        //less -> less-loader -> css-loader -> style-loader
+        use: ["style-loader", "css-loader", "less-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif|jpeg)$/,
+        use: "file-loader"
+      }
+    ]
   }
 };
