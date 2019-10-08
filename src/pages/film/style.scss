@@ -1,0 +1,44 @@
+@import "../../assets/styles/common/px2rem.scss";
+@import "../../assets/styles/common/mixins.scss";
+
+.page-film {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  //   background: red;
+}
+
+.main {
+  flex: 1;
+  //   background: green;
+}
+
+.banner {
+  @include border-bottom;
+  height: px2rem(210);
+}
+
+// .navbar {
+//   position: relative;
+//   //要使用rem
+//   height: px2rem(50);
+//   //   background: yellow;
+//   //在手机上1px的边框线其实显示出来的效果会比较粗，我们需要让其更像1px
+//   //   border-top: 1px solid #000;
+
+//  /*  &::before {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     content: "";
+//     width: 100%;
+//     height: 1px;
+//     background: blue;
+//     transform: scaleY(0.5);
+//   } */
+// }
+
+.navbar {
+  @include border-top;
+  height: px2rem(50);
+}

@@ -1,0 +1,8 @@
+//scss @import 去引入其他的scss文件
+
+@import "./common/reset.scss";
+
+html,
+body {
+  height: 100%;
+}

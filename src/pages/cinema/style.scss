@@ -1,0 +1,17 @@
+@import "../../assets/styles/common/mixins.scss";
+@import "../../assets/styles/common/px2rem.scss";
+
+.page-cinema {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  flex: 1;
+}
+
+.navbar {
+  @include border-top;
+  height: px2rem(50);
+}
